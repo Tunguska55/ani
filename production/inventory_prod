@@ -1,0 +1,16 @@
+quintanillajon1
+quintanillajon2
+quintanillajon3
+
+[webservers]
+quintanillajon2
+
+[dbservers]
+quintanillajon3
+
+[datacenter:children]
+webservers
+dbservers
+
+[datacenter:vars]
+ansible_ssh_user=user
