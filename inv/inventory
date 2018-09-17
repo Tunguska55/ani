@@ -1,8 +1,18 @@
 [local]
 localhost
 
+[production:children]
+storage
+web
+
+[storage]
+quintanillajon1 ansible_ssh_user=user
+
+[web]
 quintanillajon2.mylabserver.com
 
 [allhost]
 quintanillajon1
 quintanillajon2
+
+
