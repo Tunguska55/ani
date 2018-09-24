@@ -1,6 +1,11 @@
 [local]
 localhost
 
+[systems]
+richmond
+hector
+ludlow
+
 [production:children]
 storage
 web
