@@ -1,0 +1,20 @@
+---
+- hosts: animation:!c68
+  become: yes
+
+  tasks:
+  - name: Replacing boot to 6.9 from 7.5
+    replace:
+      path: /boot/grub2/grub.cfg
+      regexp: 'default="0"'
+      replace: 'default="Centos 6.9"'
+
+- hosts: c68
+  become: yes
+
+  tasks:
+  - name: Replacing boot to 6.8 from 7.5 for those without 6.9
+    replace:
+      path: /boot/grub2/grub.cfg
+      regexp: 'default="0"'
+      replace: 'default="Centos 6.8"'
