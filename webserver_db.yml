@@ -1,6 +1,6 @@
 ---
 - hosts: webservers
-  sudo: yes
+  become: yes
   
   tasks:
   - name: Ensure that Apache is installed
@@ -10,7 +10,7 @@
     service: name=httpd enabled=yes state=started
 
 - hosts: dbservers
-  sudo: yes
+  become: yes
 
   tasks: 
   - name: Ensure that MySQL is installed
@@ -20,7 +20,7 @@
     service: name=mysqld enabled=yes state=started
 
 - hosts: webservers:dbservers
-  sudo: yes
+  become: yes
 
   tasks:
   - name: Stop IPtables
