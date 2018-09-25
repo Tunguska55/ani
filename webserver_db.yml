@@ -14,7 +14,7 @@
 
   tasks: 
   - name: Ensure that MySQL is installed
-    yum: name=mariadb state=present
+    yum: name=mariadb-server state=present
  
   - name: Start MySQL services
     service: name=mariadb enabled=yes state=started
