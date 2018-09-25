@@ -18,10 +18,3 @@
  
   - name: Start MySQL services
     service: name=mariadb enabled=yes state=started
-
-- hosts: webservers:dbservers
-  become: yes
-
-  tasks:
-  - name: Stop IPtables
-    service: name=iptables enabled=no state=stopped
