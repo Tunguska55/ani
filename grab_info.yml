@@ -2,9 +2,28 @@
 - hosts: test
   become: yes
 
-  tasks:
-  - name: Gather IP Address
-    setup:
-      filter: ansible_default_ipv4.address
-    
-  - debug: msg={{ ansible_default_ipv4.address }}
+  #Info to gather:
+  # Date and time ran: ansible_date_time.date
+  # IP address: ansible_default_ipv4.address
+  # Mac Address: ansible_default_ipv4.macaddress
+  # Disk size: ansible_devices.sda.size
+  # Distro version: ansible_lsb.release
+  # Hostname: ansible_hostname
+  # Total Memory: ansible_memtotal_mb (or try -- facter_memory.system.total)
+  # Processor type:
+  # Processor cores: ansible_processor_cores
+  # Processor core count: ansible_processor_count
+  # Processor virtual CPU: ansible_processor_vcpus
+  # Workstation Type: ansible_product_name
+  # Workstation Serial: ansible_product_serial
+  # Current logged user (NEEDS LOGIC): facter_logged_user
+
+  tasks:  
+  - debug:
+      msg: 
+      - Date - {{ ansible_date_time.date }}
+      - IP Address - {{ ansible_default_ipv4.address }}
+      - Mac Address - {{ ansible_default_ipv4.macaddress }}
+      - Disk Size - {{ ansible_devices.sda.size }}
+      - Hostname - {{ ansible_hostname }}
+      - Total Memory - {{ ansible_memtotal_mb }}
